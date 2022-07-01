@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+ xmlns:sec="https:///www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Animated Background Login Screen</title>
+    <link rel='stylesheet' th:href ="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{./style.css}">
+
+</head>
+<body>
+
+<!-- partial:index.partial.html -->
+
+<div class="container">
+    <div style="width:140px" id="login-box">
+        <div class="logo">
+            <img style="width:35%" src="https://scontent-ams4-1.xx.fbcdn.net/v/t39.30808-6/268034896_3304506926541959_1055993852543333120_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=sC1gh8SEajEAX8xSfPo&tn=G5kH7sPvetCCudZJ&_nc_ht=scontent-ams4-1.xx&oh=00_AT-ikXLtJueKsv0AFY4u0czf5h9E7Km96PPSEM6PqZaJPg&oe=62B0761D" class="img img-responsive img-circle center-block"/>
+            <h1 class="logo-caption"><span class="tweak">L</span>ogin</h1>
+            <form th:action ="@{/j_spring_security_check}" class=" btn-default validate-form" method = POST>
+        </div>
+        <div class="controls">
+            <input type="text" name="username" placeholder="Username" class="form-control" autofocus/>
+            <input type="password" name="password" placeholder="Password" class="form-control" autofocus />
+            <button type="submit" class="btn btn-default btn-block btn-custom">Login</button>
+            <div class="form-group">
+						<span class="btn btn-default btn-block btn-custom">New user? <a href="/" th:href="@{/registration}"> Register
+								here</a></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="particles-js"></div>
+
+<!-- partial -->
+
+<script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css}"></script>
+<script th:src="@{https://code.jquery.com/jquery-1.11.1.min.js}"></script>
+<script th:src="@{./script.js}"></script>
+
+</body>
+</html>

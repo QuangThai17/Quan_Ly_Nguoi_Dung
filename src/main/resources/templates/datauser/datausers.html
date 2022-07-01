@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https:///www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body >
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="/">User Management System</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{datausers}">Datauser </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/departments}">Department </a>
+            </li>
+            <!--            <li class="nav-item">-->
+            <!--                <a class="nav-link" href="#">Link</a>-->
+            <!--            </li>-->
+        </ul>
+    </div>
+</nav>
+<div sec:authorize="isAuthenticated()">
+    Welcome <b><span sec:authentication = "name">Username</span></b>
+    &nbsp;
+    <span sec:authentication="principal.authorities">Roles</span>
+</div>
+
+<div class = "container">
+    <div class = "row">
+        <h1> List Datausers </h1>
+    </div>
+
+    <div class = "row">
+        <div class = "col-lg-3">
+            <a th:href="@{/datausers/new}" class="btn btn-primary btn-sm mb-3"> Add User </a>
+        </div>
+    </div>
+    <table class ="table table-striped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th> Id</th>
+            <th style="width:13%"> Full Name</th>
+            <th> Descrip</th>
+            <th style="width:10%">  Date Of Birth </th>
+            <th> Address</th>
+            <th style="width:10%" > Email </th>
+            <th> Creator</th>
+            <th> Updater</th>
+            <th> Update Day</th>
+            <th> Department</th>
+            <th> Actions</th>
+
+        </tr>
+        </thead>
+
+        <body>
+        <tr th:each = "datauser: ${datausers}">
+            <td th:text = "${datauser.id}"></td>
+            <td th:text = "${datauser.fullname}"></td>
+            <td th:text = "${datauser.descrip}"></td>
+            <td th:text = "${datauser.datebirth}"></td>
+            <td th:text = "${datauser.address}"></td>
+            <td th:text = "${datauser.email}"></td>
+            <td th:text = "${datauser.creator}"></td>
+            <td th:text = "${datauser.updater}"></td>
+            <td th:text = "${datauser.update_day}"></td>
+            <!--/*@thymesVar id="departmentname" type=""*/-->
+            <td th:text = "${datauser.department.departmentname}"></td>
+            <td>
+                <a th:href="@{/datausers/edit/{id}(id=${datauser.id})}"
+                   class = "btn btn-primary"> Update </a>
+
+                <a style="" th:href="@{/deleteDatauser/{id}(id=${datauser.id})}"
+                   class = "btn btn-danger"> Delete </a>
+            </td>
+        </tr>
+        </body>
+
+    </table>
+</div>
+
+</body>
+</html>

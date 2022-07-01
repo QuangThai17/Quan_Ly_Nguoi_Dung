@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Management System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="/">User Management System</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/datausers}">Datauser </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/departments}">Department </a>
+            </li>
+            <!--            <li class="nav-item">-->
+            <!--                <a class="nav-link" href="#">Link</a>-->
+            <!--            </li>-->
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
+<div class="container">
+    <div class = "row">
+        <div class = "col-lg-6 col-md-6 col-sm-6 container justify-content-center-card">
+            <h1 class ="text-center"> Create New Department </h1>
+            <div class = "card-body">
+                <form th:action="@{/saveDepartment}" method="POST">
+
+<!--                    <div class = "form-group">-->
+<!--                        <label> Department Id</label>-->
+<!--                        <input-->
+<!--                                type = "text"-->
+<!--                                name="departmentid"-->
+<!--                                class="form-control"-->
+<!--                                placeholder="Enter Id"/>-->
+<!--                    </div>-->
+
+                    <div class = "form-group">
+                        <label>  Department Name</label>
+                        <input
+                                type = "text"
+                                name="departmentname"
+                                class="form-control"
+                                placeholder="Enter Department Name"
+                                required pattern="\S+.*"/>
+                    </div>
+
+                    <div class = "form-group">
+                        <label>  Descrip</label>
+                        <input
+                                type = "text"
+                                name="descrip"
+                                class="form-control"
+                                placeholder="Enter Descrip"
+                                required pattern="\S+.*"/>
+                    </div>
+
+                    <div class = "form-group">
+                        <label>  Create Date</label>
+                        <input
+                                type = "date"
+                                name="createdate"
+                                class="form-control"
+                                placeholder="Enter Create Date"
+                                required pattern="\S+.*"/>
+                    </div>
+
+                    <div class = "form-group">
+                        <label>  Creator</label>
+                        <input
+                                type = "text"
+                                name="creator"
+                                class="form-control"
+                                placeholder="Enter Creator"
+                                required pattern="\S+.*"/>
+                    </div>
+
+<!--                    <div class = "form-group">-->
+<!--                        <label> Updater</label>-->
+<!--                        <input-->
+<!--                                type = "text"-->
+<!--                                name="updater"-->
+<!--                                class="form-control"-->
+<!--                                placeholder="Enter Updater"/>-->
+<!--                    </div>-->
+
+<!--                    <div class = "form-group">-->
+<!--                        <label> Update Day</label>-->
+<!--                        <input-->
+<!--                                type = "date"-->
+<!--                                name="updateday"-->
+<!--                                class="form-control"-->
+<!--                                placeholder="Enter UpDate Day"/>-->
+<!--                    </div>-->
+
+                    <div class = "footer-body">
+                        <button type="submit" class=" btn btn-primary">
+                            Submit
+                        </button>
+                        <button style="background-color: red" type="reset" class="btn btn-primary">Cancel</button>
+                        <a style="background-color: black"class="btn btn-primary" href="/departments">Display List Department</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

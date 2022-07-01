@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Management System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="/">User Management System</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/datausers}">Datauser </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/departments}">Department </a>
+            </li>
+            <!--            <li class="nav-item">-->
+            <!--                <a class="nav-link" href="#">Link</a>-->
+            <!--            </li>-->
+        </ul>
+    </div>
+</nav>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center-card">
+            <h1 class="text-center"> Create New Datauser </h1>
+            <div class="card-body">
+                <form th:action="@{/saveDatauser}" method="POST">
+
+
+                    <div class="form-group">
+                        <label> Fullname</label>
+                        <input
+                                type="text"
+                                name="fullname"
+                                class="form-control"
+                                placeholder="Enter Fullname"
+                                required pattern="\S+.*"
+                                autofocus/>
+                    </div>
+
+                    <div class="form-group">
+                        <label> Descrip</label>
+                        <input
+                                type="text"
+                                name="descrip"
+                                class="form-control"
+                                placeholder="Enter Descrip"
+                                required pattern="\S+.*"
+                                autofocus/>
+                    </div>
+
+                    <div class="form-group">
+                        <label> Date Of Birth</label>
+                        <input
+                                type="date"
+                                name="datebirth"
+                                class="form-control"
+                                placeholder="Enter Date Of Birth"
+                                required pattern="\S+.*"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label> Address</label>
+                        <br>
+                        <select class="form-control" name="address" required="">
+                            <option value="">Tỉnh / Thành phố</option>
+                            <option value="An Giang">An Giang
+                            <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu
+                            <option value="Bắc Giang">Bắc Giang
+                            <option value="Bắc Kạn">Bắc Kạn
+                            <option value="Bạc Liêu">Bạc Liêu
+                            <option value="Bắc Ninh">Bắc Ninh
+                            <option value="Bến Tre">Bến Tre
+                            <option value="Bình Định">Bình Định
+                            <option value="Bình Dương">Bình Dương
+                            <option value="Bình Phước">Bình Phước
+                            <option value="Bình Thuận">Bình Thuận
+                            <option value="Bình Thuận">Bình Thuận
+                            <option value="Cà Mau">Cà Mau
+                            <option value="Cao Bằng">Cao Bằng
+                            <option value="Đắk Lắk">Đắk Lắk
+                            <option value="Đắk Nông">Đắk Nông
+                            <option value="Điện Biên">Điện Biên
+                            <option value="Đồng Nai">Đồng Nai
+                            <option value="Đồng Tháp">Đồng Tháp
+                            <option value="Đồng Tháp">Đồng Tháp
+                            <option value="Gia Lai">Gia Lai
+                            <option value="Hà Giang">Hà Giang
+                            <option value="Hà Nam">Hà Nam
+                            <option value="Hà Tĩnh">Hà Tĩnh
+                            <option value="Hải Dương">Hải Dương
+                            <option value="Hậu Giang">Hậu Giang
+                            <option value="Hòa Bình">Hòa Bình
+                            <option value="Hưng Yên">Hưng Yên
+                            <option value="Khánh Hòa">Khánh Hòa
+                            <option value="Kiên Giang">Kiên Giang
+                            <option value="Kon Tum">Kon Tum
+                            <option value="Lai Châu">Lai Châu
+                            <option value="Lâm Đồng">Lâm Đồng
+                            <option value="Lạng Sơn">Lạng Sơn
+                            <option value="Lào Cai">Lào Cai
+                            <option value="Long An">Long An
+                            <option value="Nam Định">Nam Định
+                            <option value="Nghệ An">Nghệ An
+                            <option value="Ninh Bình">Ninh Bình
+                            <option value="Ninh Thuận">Ninh Thuận
+                            <option value="Phú Thọ">Phú Thọ
+                            <option value="Quảng Bình">Quảng Bình
+                            <option value="Quảng Bình">Quảng Bình
+                            <option value="Quảng Ngãi">Quảng Ngãi
+                            <option value="Quảng Ninh">Quảng Ninh
+                            <option value="Quảng Trị">Quảng Trị
+                            <option value="Sóc Trăng">Sóc Trăng
+                            <option value="Sơn La">Sơn La
+                            <option value="Tây Ninh">Tây Ninh
+                            <option value="Thái Bình">Thái Bình
+                            <option value="Thái Nguyên">Thái Nguyên
+                            <option value="Thanh Hóa">Thanh Hóa
+                            <option value="Thừa Thiên Huế">Thừa Thiên Huế
+                            <option value="Tiền Giang">Tiền Giang
+                            <option value="Trà Vinh">Trà Vinh
+                            <option value="Tuyên Quang">Tuyên Quang
+                            <option value="Vĩnh Long">Vĩnh Long
+                            <option value="Vĩnh Phúc">Vĩnh Phúc
+                            <option value="Yên Bái">Yên Bái
+                            <option value="Phú Yên">Phú Yên
+                            <option value="Tp.Cần Thơ">Tp.Cần Thơ
+                            <option value="Tp.Đà Nẵng">Tp.Đà Nẵng
+                            <option value="Tp.Hải Phòng">Tp.Hải Phòng
+                            <option value="Tp.Hà Nội">Tp.Hà Nội
+                            <option value="TP  HCM">TP HCM
+                        </select>
+                        <!--                        <select style="height: 1cm;width: 6.51cm" name="calc_shipping_provinces" required="">-->
+                        <!--                            <option value="">Tỉnh / Thành phố</option>-->
+                        <!--                        </select>-->
+                        <!--                        <select style="height: 1cm;width: 6.51cm" name="calc_shipping_district" required="">-->
+                        <!--                            <option value="">Quận / Huyện</option>-->
+                        <!--                        </select>-->
+
+                        <!--                        <input class="billing_address_1" name="" type="hidden" value=""/>-->
+                        <!--                        <input class="billing_address_2" name="" type="hidden" value=""/>-->
+                        <!--                    </div>-->
+
+                        <div class="form-group">
+                            <label> Email</label>
+                            <input
+                                    type="email"
+                                    name="email"
+                                    class="form-control"
+                                    placeholder="Enter Email"
+                                    required pattern="\S+.*"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label> Creator</label>
+                            <input
+                                    type="text"
+                                    name="creator"
+                                    class="form-control"
+                                    placeholder="Enter Creator"
+                                    required pattern="\S+.*"/>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Choose Department</label><br>
+                            <select class="form-control" name="department">
+                                <option> Department Name</option>
+                                <option th:each="dep : ${departments}" th:value="${dep.getDepartmentid()}"
+                                        th:text="${dep.getDepartmentname()}"></option>
+                            </select>
+                        </div>
+
+                        <div class="footer-body">
+                            <button type="submit" class=" btn btn-primary">
+                                Submit
+                            </button>
+                            <button style="background-color: red" type="reset" class="btn btn-primary">Cancel</button>
+                            <a style="background-color: black" class="btn btn-primary" href="/datausers">Display List
+                                Datauser</a>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>-->
+<!--<script src='https://cdn.jsdelivr.net/gh/vietblogdao/js/districts.min.js'></script>-->
+
+<!--<script>//<![CDATA[-->
+<!--if (address_2 = localStorage.getItem('address_2_saved')) {-->
+<!--    $('select[name="calc_shipping_district"] option').each(function() {-->
+<!--        if ($(this).text() == address_2) {-->
+<!--            $(this).attr('selected', '')-->
+<!--        }-->
+<!--    })-->
+<!--    $('input.billing_address_2').attr('value', address_2)-->
+<!--}-->
+<!--if (district = localStorage.getItem('district')) {-->
+<!--    $('select[name="calc_shipping_district"]').html(district)-->
+<!--    $('select[name="calc_shipping_district"]').on('change', function() {-->
+<!--        var target = $(this).children('option:selected')-->
+<!--        target.attr('selected', '')-->
+<!--        $('select[name="calc_shipping_district"] option').not(target).removeAttr('selected')-->
+<!--        address_2 = target.text()-->
+<!--        $('input.billing_address_2').attr('value', address_2)-->
+<!--        district = $('select[name="calc_shipping_district"]').html()-->
+<!--        localStorage.setItem('district', district)-->
+<!--        localStorage.setItem('address_2_saved', address_2)-->
+<!--    })-->
+<!--}-->
+<!--$('select[name="calc_shipping_provinces"]').each(function() {-->
+<!--    var $this = $(this),-->
+<!--        stc = ''-->
+<!--    c.forEach(function(i, e) {-->
+<!--        e += +1-->
+<!--        stc += '<option value=' + e + '>' + i + '</option>'-->
+<!--        $this.html('<option value="">Tỉnh / Thành phố</option>' + stc)-->
+<!--        if (address_1 = localStorage.getItem('address_1_saved')) {-->
+<!--            $('select[name="calc_shipping_provinces"] option').each(function() {-->
+<!--                if ($(this).text() == address_1) {-->
+<!--                    $(this).attr('selected', '')-->
+<!--                }-->
+<!--            })-->
+<!--            $('input.billing_address_1').attr('value', address_1)-->
+<!--        }-->
+<!--        $this.on('change', function(i) {-->
+<!--            i = $this.children('option:selected').index() - 1-->
+<!--            var str = '',-->
+<!--                r = $this.val()-->
+<!--            if (r != '') {-->
+<!--                arr[i].forEach(function(el) {-->
+<!--                    str += '<option value="' + el + '">' + el + '</option>'-->
+<!--                    $('select[name="calc_shipping_district"]').html('<option value="">Quận / Huyện</option>' + str)-->
+<!--                })-->
+<!--                var address_1 = $this.children('option:selected').text()-->
+<!--                var district = $('select[name="calc_shipping_district"]').html()-->
+<!--                localStorage.setItem('address_1_saved', address_1)-->
+<!--                localStorage.setItem('district', district)-->
+<!--                $('select[name="calc_shipping_district"]').on('change', function() {-->
+
+<!--                    var target = $(this).children('option:selected')-->
+<!--                    target.attr('selected', '')-->
+<!--                    $('select[name="calc_shipping_district"] option').not(target).removeAttr('selected')-->
+<!--                    var address_2 = target.text()-->
+<!--                    $('input.billing_address_2').attr('value', address_2)-->
+<!--                    district = $('select[name="calc_shipping_district"]').html()-->
+<!--                    localStorage.setItem('district', district)-->
+<!--                    localStorage.setItem('address_2_saved', address_2)-->
+<!--                })-->
+<!--            } else {-->
+<!--                $('select[name="calc_shipping_district"]').html('<option value="">Quận / Huyện</option>')-->
+<!--                district = $('select[name="calc_shipping_district"]').html()-->
+<!--                localStorage.setItem('district', district)-->
+<!--                localStorage.removeItem('address_1_saved', address_1)-->
+<!--            }-->
+<!--        })-->
+<!--    })-->
+<!--})-->
+<!--//]]></script>-->
+
+
+</body>
+</html>
