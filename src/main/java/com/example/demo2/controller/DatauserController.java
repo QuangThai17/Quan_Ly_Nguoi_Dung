@@ -46,6 +46,7 @@ public class DatauserController {
     @GetMapping("/datausers/edit/{id}")
     public String editDatauserForm(@PathVariable Long id, Model model){
         model.addAttribute("datauser",datauserService.getDatauserById(id));
+        model.addAttribute("departments",departmentService.getAllDepartments());
         return "datauser/edit_datauser";
     }
 
@@ -68,8 +69,6 @@ public class DatauserController {
         datauserService.updatedatauser(existingDatauser);
         return "redirect:/datausers";
     }
-
-
 
     @GetMapping("/deleteDatauser/{id}")
     public String deleteDatauser(@PathVariable(value = "id") Long id) {
