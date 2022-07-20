@@ -50,6 +50,8 @@ public class DatauserController {
         return "datauser/edit_datauser";
     }
 
+    //Update department Quang Thái
+
     @PostMapping("/datausers/edit")
     public String updateDatauser(Datauser datauser,Model model)
     {
