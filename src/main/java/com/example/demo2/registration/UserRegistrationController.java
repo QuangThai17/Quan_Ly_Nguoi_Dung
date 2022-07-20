@@ -34,7 +34,7 @@ public class UserRegistrationController {
 
     @PostMapping()
     public String save(@ModelAttribute("userRegistrationDto") UserRegistrationDto userRegistrationDto){
-        userRegistrationDto.setPassword(passwordEncoder.encode(userRegistrationDto.getPassword()));
+//      userRegistrationDto.setPassword(passwordEncoder.encode(userRegistrationDto.getPassword()));
         userService.save( userRegistrationDto);
         return "redirect:/registration?success";
     }
