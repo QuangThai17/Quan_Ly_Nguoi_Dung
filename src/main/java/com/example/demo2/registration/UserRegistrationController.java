@@ -1,5 +1,6 @@
 package com.example.demo2.registration;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/registration")
 public class UserRegistrationController {
 
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     private UserService userService;
@@ -34,7 +36,7 @@ public class UserRegistrationController {
 
     @PostMapping()
     public String save(@ModelAttribute("userRegistrationDto") UserRegistrationDto userRegistrationDto){
-//        userRegistrationDto.setPassword(passwordEncoder.encode(userRegistrationDto.getPassword()));
+        userRegistrationDto.setPassword(passwordEncoder.encode(userRegistrationDto.getPassword()));
         userService.save( userRegistrationDto);
         return "redirect:/registration?success";
     }
